@@ -1,0 +1,41 @@
+#include<stdio.h>: This line includes the standard input/output library, which provides functions like printf and scanf.
+
+int main() {: This is the beginning of the main function, which is the entry point of the program.
+
+int windowsize, sent = 0, ack, i;: Declares integer variables windowsize to store the window size, sent to keep track of the frames transmitted, ack to store the acknowledgment received, and i for loop control.
+
+
+printf("Enter window size:\n");: Prints a prompt asking the user to enter the window size.
+
+
+scanf("%d", &windowsize);: Reads an integer from the user, storing it in the variable windowsize.
+
+
+while (1) {: Enters an infinite loop. The program will continue running until explicitly broken out of using the break statement.
+
+
+for (i = 0; i < windowsize; i++) {: Enters a loop that iterates windowsize times, representing the transmission of frames within the window.
+
+
+printf("Frame %d has been transmitted.\n", sent);: Prints a message indicating the transmission of a frame with the current frame number.
+
+
+sent++;: Increments the sent variable to represent the next frame.
+
+
+if (sent == windowsize) break;: Breaks out of the loop if the number of frames transmitted (sent) reaches the window size.
+
+
+printf("\nPlease enter the last Acknowledgement received:\n");: Prompts the user to enter the last acknowledgment received.
+
+
+scanf("%d", &ack);: Reads an integer from the user, storing it in the variable ack.
+
+
+if (ack == windowsize) break;: Breaks out of the infinite loop if the acknowledgment received is equal to the window size.
+
+
+else sent = ack;: Updates the sent variable to the value of the acknowledgment received.
+
+
+return 0;: Indicates the successful execution of the program.

@@ -1,0 +1,58 @@
+#include <stdio.h>: This line includes the standard input/output library, providing functions for input (e.g., scanf) and output (e.g., printf).
+
+
+#include <string.h>: This line includes the string manipulation library, which provides functions for working with strings, such as strlen.
+
+
+int main(): This is the main function, the entry point of the program.
+
+
+char data[100], stuffedData[200];: Declares two character arrays, data and stuffedData. data is used to store the input data, and stuffedData is used to store the data after bit stuffing.
+
+
+int i, count = 0, j = 0;: Declares integers i for loop control, count to keep track of consecutive '1's, and j to keep track of the index in the stuffedData array.
+
+
+printf("Enter the data: ");: Prints a prompt asking the user to enter data.
+
+
+scanf("%s", data);: Reads a string from the standard input (keyboard) and stores it in the data array.
+
+
+for(i = 0; i < strlen(data); i++) {: A loop that iterates over each character in the data array.
+
+
+if(data[i] == '1') {: Checks if the current character is '1'.
+
+
+count++;: Increments the count of consecutive '1's.
+
+
+stuffedData[j++] = data[i];: Copies the current character to the stuffedData array and increments the index j.
+
+
+else {: If the current character is not '1'.
+
+
+count = 0;: Resets the count to zero.
+
+
+stuffedData[j++] = data[i];: Copies the current character to the stuffedData array and increments the index j.
+
+
+if(count == 5) {: Checks if there are five consecutive '1's.
+
+
+count = 0;: Resets the count to zero.
+
+
+stuffedData[j++] = '0';: Inserts a '0' after five consecutive '1's.
+
+
+stuffedData[j] = '\0';: Adds a null character at the end of the stuffedData array to mark the end of the string.
+
+
+printf("Data after bit stuffing: %s\n", stuffedData);: Prints the data after bit stuffing.
+
+
+return 0;: Indicates successful execution of the program.
